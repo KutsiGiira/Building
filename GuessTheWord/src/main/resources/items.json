@@ -2,11 +2,19 @@
   {
     "id": 1,
     "word": "eye",
+    "desc": "It is an organ that detects light and enables vision, allowing the perception of colors, shapes, and movement. It works by focusing light onto a sensitive surface, where signals are sent to the brain for interpretation, aiding in spatial awareness and navigation.",
     "hint": ["circle", "top"]
   },
   {
     "id": 2,
     "word": "nose",
+    "desc": "It’s a central facial feature that allows for the intake and release of air, enables the detection of scents, filters particles, humidifies and warms incoming air, and contributes to vocal resonance and expression.",
+    "hint": ["long", "breathe"]
+  },
+  {
+    "id": 3,
+    "word": "ear",
+    "desc": "It is a structure that facilitates hearing by detecting sound waves and converting them into signals for the brain to process. Additionally, it helps maintain balance and spatial orientation through its internal mechanisms.",
     "hint": ["long", "breathe"]
   }
 ]

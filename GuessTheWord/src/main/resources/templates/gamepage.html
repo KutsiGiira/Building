@@ -5,10 +5,38 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Welcome <span th:text="${param.name}"></span> </h1>
-<h2>Today's Word is <span th:text="'......... : ' + ${word}"></span></h2>
-<input type="text">
+<form th:action="@{/game}" method="get">
+    <h1>Welcome <span th:text="${param.name}"></span> </h1>
+    <h2>Today's Word is <span th:text="'_ _ _ : ' + ${word}"></span></h2>
+    <p th:text="${text}"></p>
+<!--    <h3>Hint : .............. | Hint : ......................</h3>-->
+    <input type="text" name="answer">
+    <button type="submit">Check</button>
+</form>
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
   async function getRandomWord() {
       const response = await fetch('http://localhost:8080/game');

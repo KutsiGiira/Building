@@ -14,9 +14,7 @@ import java.util.Random;
 @Service
 public class WordService {
     private final List<Word> words;
-
     public WordService() throws IOException {
-        // Read the JSON file from the resources directory
         String jsonPath = "src/main/resources/items.json";
         String jsonData = new String(Files.readAllBytes(Paths.get(jsonPath)));
 

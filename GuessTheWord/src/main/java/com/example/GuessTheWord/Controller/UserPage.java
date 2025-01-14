@@ -4,15 +4,20 @@ import com.example.GuessTheWord.Entity.Word;
 import com.example.GuessTheWord.Service.WordService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserPage {
-    private final WordService wordService;
-
+    private WordService wordService;
+    private Word word;
     public UserPage(WordService wordService) {
         this.wordService = wordService;
+    }
+    public UserPage(Word word) {
+        this.word = word;
+    }
+
+    public UserPage() {
     }
 
     @GetMapping("/")
@@ -23,6 +28,7 @@ public class UserPage {
     public String gamePage(@RequestParam String name, Model m){
         m.addAttribute("name", name);
         m.addAttribute("word", wordService.getRandomWord().getWord());
+        m.addAttribute("text", word.getDesc());
         return "gamepage";
     }
 }
