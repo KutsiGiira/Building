@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "word": "eye",
+    "hint": ["circle", "top"]
+  },
+  {
+    "id": 2,
+    "word": "nose",
+    "hint": ["long", "breathe"]
+  }
+]

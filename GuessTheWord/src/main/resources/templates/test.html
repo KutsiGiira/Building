@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Word</title>
+</head>
+<body>
+<h1>Random Word</h1>
+<p id="word">Loading...</p>
+<button onclick="getRandomWord()">Get Another Word</button>
+
+<script>
+  async function getRandomWord() {
+      const response = await fetch('http://localhost:8080/random');
+      const data = await response.json();
+      document.getElementById('word').innerText = `Word: ${data.word}`;
+  }
+  getRandomWord();
+</script>
+</body>
+</html>

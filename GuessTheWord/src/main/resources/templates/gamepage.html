@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome <span th:text="${param.name}"></span> </h1>
+<h2>Today's Word is <span th:text="'......... : ' + ${word}"></span></h2>
+<input type="text">
+</body>
+<script>
+  async function getRandomWord() {
+      const response = await fetch('http://localhost:8080/game');
+      const data = await response.json();
+      document.getElementById('data').innerText = `Word: ${data.word}`;
+  }
+  getRandomWord();
+</script>
+</html>
