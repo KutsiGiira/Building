@@ -6,43 +6,20 @@
 </head>
 <body>
 <form th:action="@{/game}" method="get">
-    <h1>Welcome <span th:text="${param.name}"></span> </h1>
-    <h2>Today's Word is <span th:text="'_ _ _ : ' + ${word}"></span></h2>
-    <p th:text="${text}"></p>
-<!--    <h3>Hint : .............. | Hint : ......................</h3>-->
-    <input type="text" name="answer">
+    <!--    <h1>Welcome <span th:text="${param.name}"></span> </h1>-->
+    <h2>Today's Word is <span th:text=" ${word}"></span></h2>
+    <h1><p th:text="${text}"></p></h1>
+    <h1><p th:text="${currentWord}"></p></h1>
+    <!--    <h3>Hint : .............. | Hint : ......................</h3>-->
+    <input type="text" name="word" autofocus>
     <button type="submit">Check</button>
 </form>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
-  async function getRandomWord() {
+    async function getRandomWord() {
       const response = await fetch('http://localhost:8080/game');
       const data = await response.json();
-      document.getElementById('data').innerText = `Word: ${data.word}`;
-  }
-  getRandomWord();
+    }
+    getRandomWord();
 </script>
 </html>

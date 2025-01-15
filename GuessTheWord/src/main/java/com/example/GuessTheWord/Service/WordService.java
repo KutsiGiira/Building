@@ -21,7 +21,6 @@ public class WordService {
         ObjectMapper mapper = new ObjectMapper();
         words = mapper.readValue(jsonData, new TypeReference<List<Word>>() {});
     }
-
     public Word getRandomWord() {
         Random random = new Random();
         return words.get(random.nextInt(words.size()));
