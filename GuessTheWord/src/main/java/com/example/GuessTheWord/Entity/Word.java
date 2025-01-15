@@ -35,4 +35,5 @@ public class Word {
     public void setHint(List<String> hint) {
         this.hint = hint;
     }
+
 }
