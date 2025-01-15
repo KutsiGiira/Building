@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<form th:action="@{/}" method="get">
+<h1>Quote of today</h1>
+    <div>
+        <span th:text="${quote.quote}"></span>
+    </div>
+    <div>
+        <span th:text="${quote.author}"></span>
+    </div>
+<button type="submit">Next</button>
+</form>
+</body>
+</html>

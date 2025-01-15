@@ -15,46 +15,45 @@ public class UserPage {
         this.wordService = wordService;
     }
 
-//    @GetMapping("/")
-//    public String home() {
-//        return "home";
-//    }
-//    @GetMapping("/game")
-//    public String gamePage(@RequestParam String name, Model m){
-//        Word rndm = wordService.getRandomWord();
-//        m.addAttribute("name", name);
-//        m.addAttribute("word", rndm.getWord());
-//        m.addAttribute("text",rndm.getWord());
-//        return "gamepage";
-//    }
-@GetMapping("/game")
-public String gamePage(@RequestParam(value = "word", required = false) String inputWord,
-                       @SessionAttribute(value = "currentWord", required = false) String currentWord,
-                       Model model) {
-
-    if (currentWord == null) {
-        // Get a random word if no word is stored in the session
-        Word randomWord = wordService.getRandomWord();
-        currentWord = randomWord.getWord();  // Store the word to compare later
+    @GetMapping("/")
+    public String home() {
+        return "home";
     }
-
-    String text = "";  // Initialize the text to an empty string
-    if (inputWord != null) {  // Only compare if inputWord is not null (i.e., the form has been submitted)
-        if (inputWord.equalsIgnoreCase(currentWord)) {
-            text = "Correct!";
-        } else {
-            text = "Try again!";
-        }
+    @GetMapping("/game")
+    public String gamePage(@RequestParam String name, Model m){
+        Word rndm = wordService.getRandomWord();
+        m.addAttribute("name", name);
+        m.addAttribute("word", rndm);
+        return "gamepage";
     }
-
-    // Add the current word and feedback message to the model
-    model.addAttribute("word", currentWord);
-    model.addAttribute("text", text);
-
-    // Save the current word in the session for future requests
-    model.addAttribute("currentWord", currentWord);
-
-    return "gamepage";  // Return the name of the view
-}
+//@GetMapping("/game")
+//public String gamePage(@RequestParam(value = "word", required = false) String inputWord,
+//                       @SessionAttribute(value = "currentWord", required = false) String currentWord,
+//                       Model model) {
+//
+//    if (currentWord == null) {
+//        // Get a random word if no word is stored in the session
+//        Word randomWord = wordService.getRandomWord();
+//        currentWord = randomWord.getWord();  // Store the word to compare later
+//    }
+//
+//    String text = "";  // Initialize the text to an empty string
+//    if (inputWord != null) {  // Only compare if inputWord is not null (i.e., the form has been submitted)
+//        if (inputWord.equalsIgnoreCase(currentWord)) {
+//            text = "Correct!";
+//        } else {
+//            text = "Try again!";
+//        }
+//    }
+//
+//    // Add the current word and feedback message to the model
+//    model.addAttribute("word", currentWord);
+//    model.addAttribute("text", text);
+//
+//    // Save the current word in the session for future requests
+//    model.addAttribute("currentWord", currentWord);
+//
+//    return "gamepage";  // Return the name of the view
+//}
 
 }
